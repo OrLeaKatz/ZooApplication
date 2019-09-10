@@ -15,4 +15,10 @@ public class Animal {
         this.name = name;
         this.description = description;
     }
+
+    public String getResourceName() {
+        return "animal" + id;
+    }
+
+
 }
