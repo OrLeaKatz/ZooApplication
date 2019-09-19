@@ -10,11 +10,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 
 public class AnimalsListActivity extends AppCompatActivity {
     private  ListView listView;
+    private Animal[] initialAnimals;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,20 +28,29 @@ public class AnimalsListActivity extends AppCompatActivity {
     }
 
     private void initListView() {
-        Animal[] initialAnimals = DataManager.getInitialAnimals(this);
+        initialAnimals = Arrays.copyOf(DataManager.animals, DataManager.animals.length);
+
+        Arrays.sort(initialAnimals, new Comparator<Animal>() {
+            @Override
+            public int compare(Animal animal1, Animal animal2) {
+                return animal1.name.compareTo(animal2.name);
+            }
+        });
+
         List<String> animalNameList = new ArrayList<>();
 
         for(Animal animal : initialAnimals) {
             animalNameList.add(animal.name);
         }
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, animalNameList);
+        AlternatingColorArrayAdapter<String> arrayAdapter
+                = new AlternatingColorArrayAdapter<>(this, android.R.layout.simple_list_item_1, animalNameList);
         listView.setAdapter(arrayAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                long animalId = i;
+                int animalId = initialAnimals[i].id;
                 Intent intent = new Intent(AnimalsListActivity.this, DisplayAnimalActivity.class);
                 intent.putExtra(DisplayAnimalActivity.ANIMAL_ID_KEY, animalId);
                 startActivity(intent);

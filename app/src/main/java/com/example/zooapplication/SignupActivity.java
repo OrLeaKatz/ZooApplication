@@ -53,7 +53,7 @@ public class SignupActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     // sign up successful
                     Toast.makeText(SignupActivity.this, "signup successful", Toast.LENGTH_SHORT).show();
-                    uploadAnimalsForUser();
+               //     uploadAnimalsForUser();
                     Intent intent = new Intent(SignupActivity.this, AnimalsListActivity.class);
                     startActivity(intent);
                 } else {
@@ -75,19 +75,19 @@ public class SignupActivity extends AppCompatActivity {
         return emailEditText.getText().toString().trim();
     }
 
-    private void uploadAnimalsForUser() {
-        if(firebaseAuth.getUid() == null) {
-            // show error, go to log in activity
-            Toast.makeText(this, "not logged in", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        Animal[] initialAnimals = DataManager.getInitialAnimals(this);
-
-        for(Animal animal : initialAnimals) {
-            databaseReference.child("user_animals").child(firebaseAuth.getUid()).child(String.valueOf(animal.id)).setValue(animal);
-        }
-
-    }
+//    private void uploadAnimalsForUser() {
+//        if(firebaseAuth.getUid() == null) {
+//            // show error, go to log in activity
+//            Toast.makeText(this, "not logged in", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//
+//        Animal[] initialAnimals = DataManager.getInitialAnimals(this);
+//
+//        for(Animal animal : initialAnimals) {
+//            databaseReference.child("user_animals").child(firebaseAuth.getUid()).child(String.valueOf(animal.id)).setValue(animal);
+//        }
+//
+//    }
 }
 

@@ -1,7 +1,6 @@
 package com.example.zooapplication;
 
-import androidx.appcompat.app.AppCompatActivity;;
-
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
 
     public void onSignupButtonClicked(View v) {
         Intent intent = new Intent(this, SignupActivity.class);

@@ -2,7 +2,7 @@ package data;
 
 public class Animal {
     // public fields & empty constructor for firebase
-    public long id;
+    public int id;
     public String name;
     public String description;
 
@@ -10,15 +10,16 @@ public class Animal {
 
     }
 
-    public Animal(long id, String name, String description) {
+    public Animal(int id, String name) {
         this.id = id;
         this.name = name;
-        this.description = description;
     }
 
     public String getResourceName() {
         return "animal" + id;
     }
 
-
+    public String getWikiAPIUrl() {
+        return "https://he.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=" + name;
+    }
 }

@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="activity_background">#E6E8EA</color>
+    <color name="colorButtonBackgroundTint">#3F51B5</color>
+    <color name="colorButtonText">#ffffff</color>
+
+    <color name="colorListViewEvenItemBackground">#8ED5C4</color>
+    <color name="colorListViewOddItemBackground">#6D9C93</color>
 </resources>

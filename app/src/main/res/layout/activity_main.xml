@@ -4,23 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="25dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signinButton"
+    android:gravity="center_vertical"
+    android:background="@drawable/forest">
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:onClick="onSigninButtonClicked"
-        android:text="Sign In"/>
+        card_view:cardElevation="4dp"
+        card_view:cardCornerRadius="10dp"
+        card_view:contentPadding="10dp"
+        card_view:cardUseCompatPadding="true">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signupButton"
+          <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/signinButton"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="7dp"
+           android:onClick="onSigninButtonClicked"
+           android:text="התחבר"
+              app:backgroundTint="@color/colorButtonBackgroundTint"
+              android:textColor="@color/colorButtonText"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:onClick="onSignupButtonClicked"
-        android:text="Sign Up"/>
+        card_view:cardElevation="4dp"
+        card_view:cardCornerRadius="10dp"
+        card_view:contentPadding="10dp"
+        card_view:cardUseCompatPadding="true">
+           <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/signupButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:onClick="onSignupButtonClicked"
+            android:text="הירשם"
+               app:backgroundTint="@color/colorButtonBackgroundTint"
+               android:textColor="@color/colorButtonText"/>
+    </androidx.cardview.widget.CardView>
+
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
+

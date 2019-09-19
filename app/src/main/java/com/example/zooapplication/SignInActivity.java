@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -61,10 +62,11 @@ public class SignInActivity extends AppCompatActivity {
 
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
+// recycler view adapter custom view
+        TextInputLayout emailTextInputLayout = findViewById(R.id.emailTextInputLayout);
 
         if (email.isEmpty()) {
-            /// show error message
-            Toast.makeText(this, "Email must not be empty", Toast.LENGTH_SHORT).show();
+            emailTextInputLayout.setError("Email must not be empty");
             return;
         }
         if (!Utils.isValidEmail(email)) {
